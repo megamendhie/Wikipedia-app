@@ -1,0 +1,4 @@
+package holders
+
+class CardViewHolder {
+}
