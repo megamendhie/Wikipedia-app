@@ -5,17 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.sqube.wikipedia.R
 import holders.CardViewHolder
+import holders.ListItemHolder
 
-class ListItemAdapter : RecyclerView.Adapter<CardViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        var cardItem = LayoutInflater.from(parent.context).inflate(R.layout.article_card_item, parent, false)
-        return CardViewHolder(cardItem)
+class ListItemAdapter : RecyclerView.Adapter<ListItemHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemHolder{
+        var cardItem = LayoutInflater.from(parent.context).inflate(R.layout.article_list_item, parent, false)
+        return ListItemHolder(cardItem)
     }
 
     override fun getItemCount(): Int {
         return 15
     }
 
-    override fun onBindViewHolder(holder: CardViewHolder, postion: Int) {
+    override fun onBindViewHolder(holder: ListItemHolder, postion: Int) {
     }
 }

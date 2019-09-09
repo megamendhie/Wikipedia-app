@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.sqube.wikipedia.R
 import kotlinx.android.synthetic.main.article_card_item.view.*
 
-class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val articleImage: ImageView = itemView.findViewById<ImageView>(R.id.imgArticle)
-    private val articleText: TextView = itemView.findViewById<TextView>(R.id.txtArticle)
+class ListItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private val articleImage: ImageView = itemView.findViewById<ImageView>(R.id.result_icon)
+    private val articleText: TextView = itemView.findViewById<TextView>(R.id.result_title)
 }
