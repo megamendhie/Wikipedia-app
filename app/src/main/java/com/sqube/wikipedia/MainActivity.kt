@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import fragments.ExploreFragment
 import fragments.FavouritesFragment
 import fragments.HistoryFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
+        setSupportActionBar(toolbar)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.fragment_container, exploreFragment)
         transaction.commit()

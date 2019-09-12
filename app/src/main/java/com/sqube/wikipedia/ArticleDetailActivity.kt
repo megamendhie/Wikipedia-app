@@ -29,7 +29,7 @@ class ArticleDetailActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.search_menu, menu)
         val searchItem = menu!!.findItem(R.id.action_search)
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = searchItem!!.actionView as SearchView
+        val searchView = searchItem.actionView as SearchView
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.setIconifiedByDefault(false)

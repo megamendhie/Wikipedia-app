@@ -8,6 +8,6 @@ import com.sqube.wikipedia.R
 import kotlinx.android.synthetic.main.article_card_item.view.*
 
 class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val articleImage: ImageView = itemView.findViewById<ImageView>(R.id.imgArticle)
-    private val articleText: TextView = itemView.findViewById<TextView>(R.id.txtArticle)
+    private val articleImage: ImageView = itemView.findViewById(R.id.imgArticle)
+    private val articleText: TextView = itemView.findViewById(R.id.txtArticle)
 }
