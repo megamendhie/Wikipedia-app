@@ -1,51 +1,42 @@
 package com.sqube.wikipedia
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
+import android.util.Log
 import android.view.MenuItem
-import android.widget.SearchView
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_article_detail.*
+import models.WikiPage
 
 class ArticleDetailActivity : AppCompatActivity() {
+    private var currentPage: WikiPage? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_article_detail);
+        setContentView(R.layout.activity_article_detail)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        //get the page from the extra
+        val wikiPageJson = intent.getStringExtra("page")
+        currentPage = Gson().fromJson<WikiPage>(wikiPageJson, WikiPage::class.java)
+        wvDetail?.webViewClient = object: WebViewClient(){
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                return true
+            }
+        }
+        Log.i("ArticleDetails", " Full url-> "+ currentPage!!.fullurl)
+        Log.i("ArticleDetails", " wikipage-> "+ currentPage!!.toString())
+        wvDetail.loadUrl(currentPage!!.fullurl)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if(item!!.itemId == android.R.id.home)
             finish()
         return true
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.search_menu, menu)
-        val searchItem = menu!!.findItem(R.id.action_search)
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = searchItem.actionView as SearchView
-
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.setIconifiedByDefault(false)
-        searchView.requestFocus()
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String): Boolean {
-
-                //do the search and update the elements
-                println("updated search")
-                return false
-            }
-
-            override fun onQueryTextChange(s: String): Boolean {
-                return false
-            }
-        })
-        return super.onCreateOptionsMenu(menu)
     }
 }
