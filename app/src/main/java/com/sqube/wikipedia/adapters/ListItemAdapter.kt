@@ -1,4 +1,4 @@
-package adapters
+package com.sqube.wikipedia.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
