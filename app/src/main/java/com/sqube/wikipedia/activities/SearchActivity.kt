@@ -1,6 +1,6 @@
-package com.sqube.wikipedia
+package com.sqube.wikipedia.activities
 
-import adapters.ListItemAdapter
+import com.sqube.wikipedia.adapters.ListItemAdapter
 import android.app.SearchManager
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
@@ -8,18 +8,20 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ListAdapter
 import android.widget.SearchView
+import com.sqube.wikipedia.R
+import com.sqube.wikipedia.WikiApplication
+import com.sqube.wikipedia.managers.WikiManager
 import kotlinx.android.synthetic.main.activity_search.*
-import providers.ArticleDataProvider
 
 class SearchActivity : AppCompatActivity() {
-    private val provider: ArticleDataProvider = ArticleDataProvider()
+    private var wikiManager: WikiManager? = null
     private val  adapter: ListItemAdapter = ListItemAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+        wikiManager = (applicationContext as WikiApplication).wikiManager
 
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -48,7 +50,7 @@ class SearchActivity : AppCompatActivity() {
 
                 //do the search and update the elements
 
-                provider.search(query, 0, 20) { wikiResult ->
+                wikiManager?.search(query, 0, 20) { wikiResult ->
                     adapter.currentResults.clear()
                     adapter.currentResults.addAll(wikiResult.query!!.pages)
                     runOnUiThread { adapter.notifyDataSetChanged() }

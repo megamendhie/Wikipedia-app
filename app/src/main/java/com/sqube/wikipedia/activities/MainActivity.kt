@@ -1,11 +1,12 @@
-package com.sqube.wikipedia
+package com.sqube.wikipedia.activities
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import fragments.ExploreFragment
-import fragments.FavouritesFragment
-import fragments.HistoryFragment
+import com.sqube.wikipedia.R
+import com.sqube.wikipedia.fragments.ExploreFragment
+import com.sqube.wikipedia.fragments.FavouritesFragment
+import com.sqube.wikipedia.fragments.HistoryFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
