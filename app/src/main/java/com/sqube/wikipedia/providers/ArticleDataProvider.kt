@@ -1,14 +1,13 @@
-package providers
+package com.sqube.wikipedia.providers
 
 import android.util.Log
 import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.core.ResponseDeserializable
-import com.github.kittinunf.fuel.core.isSuccessful
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import com.google.gson.Gson
-import models.Urls
-import models.WikiResult
+import com.sqube.wikipedia.models.Urls
+import com.sqube.wikipedia.models.WikiResult
 import java.io.Reader
 
 class ArticleDataProvider {

@@ -1,7 +1,8 @@
-package repositories
+package com.sqube.wikipedia.repositories
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import org.jetbrains.anko.db.*
 
 class ArticleDatabaseOpenhelper (context : Context): ManagedSQLiteOpenHelper(context, "ArticleDatabase.db", null, 1) {
@@ -20,7 +21,7 @@ class ArticleDatabaseOpenhelper (context : Context): ManagedSQLiteOpenHelper(con
             "url" to TEXT,
             "thumbnailJson" to TEXT)
 
-
+        Log.i("HelperClass", "successful")
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

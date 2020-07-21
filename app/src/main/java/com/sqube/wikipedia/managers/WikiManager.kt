@@ -1,10 +1,10 @@
-package managers
+package com.sqube.wikipedia.managers
 
-import models.WikiPage
-import models.WikiResult
-import providers.ArticleDataProvider
-import repositories.FavouritesRepo
-import repositories.HistoryRepo
+import com.sqube.wikipedia.models.WikiPage
+import com.sqube.wikipedia.models.WikiResult
+import com.sqube.wikipedia.providers.ArticleDataProvider
+import com.sqube.wikipedia.repositories.FavouritesRepo
+import com.sqube.wikipedia.repositories.HistoryRepo
 
 class WikiManager (
     private val provider: ArticleDataProvider,
@@ -41,7 +41,7 @@ class WikiManager (
     
     fun removeFavourite(pageId: Int){
         favouriteRepo.removeFavouriteById(pageId)
-        favouriteCache = favouriteCache!!.filter { it.pageId != pageId } as ArrayList<WikiPage>
+        favouriteCache = favouriteCache!!.filter { it.pageid != pageId } as ArrayList<WikiPage>
     }
     
     fun getIsFavourite(pageId: Int): Boolean{
@@ -55,13 +55,13 @@ class WikiManager (
 
     fun removeHistory(pageId: Int){
         historyRepo.removeHistoryById(pageId)
-        historyCache = historyCache!!.filter { it.pageId != pageId } as ArrayList<WikiPage>
+        historyCache = historyCache!!.filter { it.pageid != pageId } as ArrayList<WikiPage>
     }
     
     fun clearHistory(){
         historyCache?.clear()
         val allHistory = historyRepo.getAllHistory()
-        allHistory?.forEach { historyRepo.removeHistoryById(it.pageId!!) }
+        allHistory?.forEach { historyRepo.removeHistoryById(it.pageid!!) }
     }
 
 }

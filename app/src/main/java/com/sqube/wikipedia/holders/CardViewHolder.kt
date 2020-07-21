@@ -1,16 +1,15 @@
-package holders
+package com.sqube.wikipedia.holders
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-import com.sqube.wikipedia.ArticleDetailActivity
+import com.sqube.wikipedia.activities.ArticleDetailActivity
 import com.sqube.wikipedia.R
-import models.WikiPage
+import com.sqube.wikipedia.models.WikiPage
 
 class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val articleImage: ImageView = itemView.findViewById(R.id.imgArticle)
