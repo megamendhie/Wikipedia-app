@@ -1,4 +1,4 @@
-package models
+package com.sqube.wikipedia.models
 
 class WikiThumbnail {
     val source: String? = null

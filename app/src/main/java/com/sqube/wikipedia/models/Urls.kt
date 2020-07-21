@@ -1,4 +1,4 @@
-package models
+package com.sqube.wikipedia.models
 
 object Urls {
     private val BaseUrl = "https://en.wikipedia.org/w/api.php"
