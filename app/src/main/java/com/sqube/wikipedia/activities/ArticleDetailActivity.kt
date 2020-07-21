@@ -26,12 +26,12 @@ class ArticleDetailActivity : AppCompatActivity() {
         currentPage = Gson().fromJson<WikiPage>(wikiPageJson, WikiPage::class.java)
         wvDetail?.webViewClient = object: WebViewClient(){
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                return true
+                return false
             }
         }
+        wvDetail.loadUrl(currentPage!!.fullurl)
         Log.i("ArticleDetails", " Full url-> "+ currentPage!!.fullurl)
         Log.i("ArticleDetails", " wikipage-> "+ currentPage!!.toString())
-        wvDetail.loadUrl(currentPage!!.fullurl)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

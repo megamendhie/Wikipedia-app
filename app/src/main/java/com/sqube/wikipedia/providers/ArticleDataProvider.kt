@@ -36,7 +36,7 @@ class ArticleDataProvider {
             }
     }
 
-    fun getRandom(take: Int, responseHandler : (result: WikiResult) -> Unit){
+    fun getRandom(take: Int, responseHandler : (result: WikiResult) -> Unit?){
         Urls.getRandomUrl(take).httpGet()
             .responseObject(WikipediaDataDeserializer()){ _, _, result->
 

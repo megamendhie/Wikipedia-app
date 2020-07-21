@@ -4,8 +4,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.sqube.wikipedia.R
-import holders.ListItemHolder
-import models.WikiPage
+import com.sqube.wikipedia.holders.ListItemHolder
+import com.sqube.wikipedia.models.WikiPage
 
 class ListItemAdapter : RecyclerView.Adapter<ListItemHolder>() {
     var currentResults: ArrayList<WikiPage> = ArrayList()
