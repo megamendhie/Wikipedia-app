@@ -5,21 +5,17 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+            android:name=".WikiApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activities.SearchActivity"/>
+        <activity android:name=".activities.ArticleDetailActivity"/>
         <activity
-                android:name=".SampleActivity"
-                android:label="@string/title_activity_sample"
-                android:theme="@style/AppTheme.NoActionBar.NoActionBar">
-        </activity>
-        <activity android:name=".SearchActivity"/>
-        <activity android:name=".ArticleDetailActivity"/>
-        <activity
-                android:name=".MainActivity"
+                android:name=".activities.MainActivity"
                 android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
